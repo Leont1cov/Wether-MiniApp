@@ -1,14 +1,9 @@
+@use "./card";
 @use "./base/global";
 @use "./base/mixins";
 @use "./base/variables" as *;
 
 .locationCard {
-  width: 240px;
-  padding: 53px 107px;
-  border: 1px solid #000;
-  border-radius: 30px;
-  color: $color-white;
-  background-color: $color-base;
   box-shadow: 10px 10px 4px $color-black-transparensy;
 
   @include mixins.flexCenter;

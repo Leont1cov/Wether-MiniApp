@@ -15,7 +15,7 @@ const LocationCard = ({ city }: LocationCardProps) => {
 
     return (
         <>
-            <div className="locationCard">
+            <div className="card locationCard">
                 <h2 className="locationCard__city">{city}</h2>
                 <h1 className="locationCard__time">{`${hours}:${minutes}`}</h1>
             </div>
