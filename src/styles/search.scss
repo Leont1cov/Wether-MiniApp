@@ -1,0 +1,28 @@
+@use "../styles/base/variables" as *;
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  &__input {
+    width: 300px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid $color-white-transparent;
+    background-color: $color-base;
+    color: $color-white;
+    font-size: 14px;
+
+    &::placeholder {
+      color: $color-white-light;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-white;
+      box-shadow: 0 0 8px $color-white-transparent;
+    }
+  }
+}
