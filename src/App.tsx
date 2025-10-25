@@ -4,6 +4,8 @@ import weatherApi from "./services/WeatherApi.ts";
 import LocationCard from "./Dashboards/LocationCard.tsx";
 import WeatherDetails from "./Dashboards/WeatherDetails.tsx";
 import WindAndHumidity from "./Dashboards/WindAndHumidity.tsx";
+import Search from "./Dashboards/Search.tsx";
+import "./styles/weatherApp.scss";
 
 type WeatherData = {
     name: string;
@@ -42,18 +44,21 @@ function App() {
 
   return (
     <>
-      <h1>Weather-app</h1>
-        {weather && <LocationCard city={weather?.name}/>}
+        <div className="weatherApp">
+            {weather && <Search onSearch={handleWeather} />}
 
-        {weather && <WeatherDetails
-            temp={weather.main.temp}
-            feelsLike={weather.main.feels_like}
-            description={weather.weather[0].description}
-            icon={weather.weather[0].icon}/> }
+            <div className="weatherApp__cards">
+                {weather && <LocationCard city={weather?.name}/>}
 
-        {weather && <WindAndHumidity deg={weather.wind.deg} gust={weather.wind.gust} speed={weather.wind.speed}/>}
+                {weather && <WeatherDetails
+                    temp={weather.main.temp}
+                    feelsLike={weather.main.feels_like}
+                    description={weather.weather[0].description}
+                    icon={weather.weather[0].icon}/> }
 
-        {weather && weather.sys.sunrise}
+                {weather && <WindAndHumidity deg={weather.wind.deg} gust={weather.wind.gust} speed={weather.wind.speed}/>}
+            </div>
+        </div>
     </>
   )
 }

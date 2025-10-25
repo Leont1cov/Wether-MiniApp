@@ -1,0 +1,23 @@
+@import "./base/mixins";
+@import "./base/variables";
+
+.weatherApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background-color: $color-base;
+  color: $color-white;
+
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+}
