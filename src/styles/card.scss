@@ -1,10 +1,15 @@
 @use "./base/variables" as *;
+@use "./base/mixins";
 
 .card {
   width: 240px;
-  padding: 53px 107px;
-  border: 1px solid #000;
-  border-radius: 30px;
-  color: $color-white;
+  padding: 30px;
+  border-radius: 20px;
   background-color: $color-base;
+  color: $color-white;
+  border: 1px solid $color-white-transparent;
+  box-shadow: 0 8px 20px $color-black-transparent;
+
+  @include mixins.flexCenter;
+  text-align: center;
 }
