@@ -1,6 +1,6 @@
-@use "./global";
-@use "./mixins";
-@use "./variables" as *;
+@use "./base/global";
+@use "./base/mixins";
+@use "./base/variables" as *;
 
 .locationCard {
   width: 240px;
