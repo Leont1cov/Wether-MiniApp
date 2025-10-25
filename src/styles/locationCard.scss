@@ -1,0 +1,24 @@
+@use "./global";
+@use "./mixins";
+@use "./variables" as *;
+
+.locationCard {
+  width: 240px;
+  padding: 53px 107px;
+  border: 1px solid #000;
+  border-radius: 30px;
+  color: $color-white;
+  background-color: $color-base;
+  box-shadow: 10px 10px 4px $color-black-transparensy;
+
+  @include mixins.flexCenter;
+  flex-direction: column;
+
+  &__city {
+    font-size: 36px;
+  }
+
+  &__time {
+    font-size: 96px;
+  }
+}
