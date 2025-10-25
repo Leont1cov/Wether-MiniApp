@@ -1,28 +1,25 @@
-import './App.css'
-import {useRef} from "react";
+import './App.scss'
+import { useState, useEffect } from "react";
+import weatherApi from "./services/WeatherApi.ts";
+import LocationCard from "./Dashboards/LocationCard.tsx";
 
 function App() {
-    const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-    const inputRef = useRef<HTMLInputElement>(null)
+    const [weather, setWeather] = useState<unknown | null>(null);
 
-    async function returnData(city: string) {
-        try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
-            const data:unknown = response.json();
-        } catch (err) {
-            console.error(err);
-        }
-
-
-
+    async function handleWeather(city:string =  "Moscow" ):Promise<void> {
+        const data:unknown = await weatherApi(city);
+        setWeather(data);
     }
 
-
+    useEffect(():void => {
+        handleWeather();
+    }, []);
 
   return (
     <>
       <h1>Weather-app</h1>
-        <input onChange={():void => console.log(inputRef.current?.value)} ref={inputRef} placeholder="city name" />
+        <button>Press button</button>
+        <LocationCard city={weather?.name}/>
     </>
   )
 }
