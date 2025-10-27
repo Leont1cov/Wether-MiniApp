@@ -1,5 +1,4 @@
-@import "./base/mixins";
-@import "./base/variables";
+@use "./base/variables";
 
 .weatherApp {
   display: flex;
@@ -8,8 +7,8 @@
   gap: 30px;
   padding: 40px 20px;
   min-height: 100vh;
-  background-color: $color-base;
-  color: $color-white;
+  background-color: variables.$color-base;
+  color: variables.$color-white;
 
   &__cards {
     display: flex;
